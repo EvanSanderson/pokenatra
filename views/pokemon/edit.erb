@@ -1,0 +1,22 @@
+<h1> Change Your Pokemon! </h1>
+<p> Here, you can edit your existing Pokemon however you like! </p>
+
+<form action="/pokemon/<%=@pokemon.id%>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label>Name</label>
+  <input type="text" name="pokemon[name]" value="<%=@pokemon.name%>">
+  <label>Pokemon Type</label>
+  <input type="text" name="pokemon[poke_type]" value="<%=@pokemon.poke_type%>">
+  <label>Combat Power</label>
+  <input type="text" name="pokemon[cp]" value="<%=@pokemon.cp%>">
+  <label>Image URL</label>
+  <input type="text" name="name" value="<%=@pokemon.img_url%>">
+  <input type="submit" name="name" value="Edit Your Pokemon!">
+</form>
+
+<h2> Delete Your Pokemon </h2>
+<form action="/pokemon/<%=@pokemon.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete This Pokemon">
+
+</form>
