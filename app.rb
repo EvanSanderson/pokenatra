@@ -12,7 +12,7 @@ require_relative 'models/pokemon'
 require_relative 'models/trainer'
 
 get '/' do
-  redirect '/pokemon'
+  erb :"master"
 end
 
 get '/pokemon' do
@@ -49,4 +49,34 @@ delete '/pokemon/:id' do
   pokemon = Pokemon.find(params[:id])
   pokemon.destroy
   redirect '/pokemon'
+end
+
+get '/trainer' do
+  @trainers = Trainer.all
+  erb :"trainer/index"
+end
+
+get '/trainer/new' do
+  erb :"trainer/new"
+end
+
+get '/trainer/:id' do
+  @trainer = Trainer.find(params[:id])
+  erb :"/trainer/show"
+end
+
+post '/trainer' do
+  trainer = Trainer.create(params[:trainer])
+  redirect "/trainer/#{trainer.id}"
+end
+
+get '/trainer/:id/edit' do
+  @trainer = Trainer.find(params[:id])
+  erb :"/trainer/edit"
+end
+
+put '/trainer/:id' do
+  trainer = Trainer.find(params[:id])
+  trainer.update(params[:trainer])
+  redirect "/trainer/#{trainer.id}"
 end

@@ -1,0 +1,9 @@
+<h1> Trainer Name: <%=@trainer.name%> </h1>
+<p> Level: <%=@trainer.level%> </h1>
+<img src="<%=@trainer.img_url%>">
+<% @trainer.pokemons.each do |poke|%>
+    <p> <%=poke.name%></p>
+    <img src="<%=poke.img_url%>">
+  <%end%>
+
+<a href="/trainer/<%=@trainer.id%>/edit">Edit Your Trainer </a>

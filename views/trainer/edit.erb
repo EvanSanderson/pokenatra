@@ -1,0 +1,13 @@
+<h1> Change Your Trainer! </h1>
+<p> Here, you can edit your existing Trainer! </p>
+
+<form action="/trainer/<%=@trainer.id%>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label>Name</label>
+  <input type="text" name="trainer[name]" value="<%=@trainer.name%>">
+  <label>Level</label>
+  <input type="text" name="trainer[level]" value="<%=@trainer.level%>">
+  <label>Image URL</label>
+  <input type="text" name="trainer[img_url]" value="<%=@trainer.img_url%>">
+  <input type="submit" name="name" value="Edit Your Trainer!">
+</form>

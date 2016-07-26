@@ -10,9 +10,12 @@
   <label>Combat Power</label>
   <input type="text" name="pokemon[cp]" value="<%=@pokemon.cp%>">
   <label>Image URL</label>
-  <input type="text" name="name" value="<%=@pokemon.img_url%>">
+  <input type="text" name="pokemon[img_url]" value="<%=@pokemon.img_url%>">
+  <label>Assign To Trainer (By ID)</label>
+  <input type="number" name="pokemon[trainer_id]">
   <input type="submit" name="name" value="Edit Your Pokemon!">
 </form>
+
 
 <h2> Delete Your Pokemon </h2>
 <form action="/pokemon/<%=@pokemon.id%>" method="post">
