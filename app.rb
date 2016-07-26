@@ -26,6 +26,7 @@ end
 
 get '/pokemon/:id' do
   @pokemon = Pokemon.find(params[:id])
+  @trainer = @pokemon.trainer
   erb :"/pokemon/show"
 end
 
