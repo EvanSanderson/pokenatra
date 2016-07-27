@@ -1,7 +1,7 @@
 <h1> Pokemon Name: <%=@pokemon.name%> </h2>
 <p> Pokemon Type: <%=@pokemon.poke_type%></p>
 <p> Pokemon Combat Power: <%=@pokemon.cp%></p>
-<p> Pokemon Trainer:  <%=@trainer.name%> </p>
+<a href="/trainer/<%=@trainer.id%>"><p> Trainer Name: <%=@trainer.name%> </p></a>
 <img src="<%=@pokemon.img_url%>">
 
 <a href="/pokemon/<%=@pokemon.id%>/edit"> | Edit This Pokemon | </a>

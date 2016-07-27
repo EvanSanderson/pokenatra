@@ -10,5 +10,12 @@
   <input type="text" name="pokemon[cp]">
   <label>Photo URL</label>
   <input type="text" name="pokemon[img_url]">
+  <br>
+  <label>Assign To Trainer </label>
+  <% @trainers.each do |trainer| %>
+  <br>
+    <input type="radio" name="pokemon[trainer_id]" value="<%=trainer.id%>">
+      <p> <%=trainer.name%> </p>
+    <%end%>
   <input type="submit" value="Click here to add your pokemon!">
 </form>

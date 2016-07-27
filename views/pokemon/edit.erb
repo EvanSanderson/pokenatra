@@ -11,8 +11,13 @@
   <input type="text" name="pokemon[cp]" value="<%=@pokemon.cp%>">
   <label>Image URL</label>
   <input type="text" name="pokemon[img_url]" value="<%=@pokemon.img_url%>">
-  <label>Assign To Trainer (By ID)</label>
-  <input type="number" name="pokemon[trainer_id]">
+  <br>
+  <label>Assign To Trainer </label>
+  <% @trainers.each do |trainer| %>
+  <br>
+    <input type="radio" name="pokemon[trainer_id]" value="<%=trainer.id%>">
+      <p> <%=trainer.name%> </p>
+    <%end%>
   <input type="submit" name="name" value="Edit Your Pokemon!">
 </form>
 

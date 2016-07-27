@@ -9,5 +9,18 @@
   <input type="text" name="trainer[level]" value="<%=@trainer.level%>">
   <label>Image URL</label>
   <input type="text" name="trainer[img_url]" value="<%=@trainer.img_url%>">
+  <label> Check Out What Pokemon Have Been Caught</label>
+  <% @pokemon.each do |pokemon| %>
+  <br>
+  <a href="/pokemon/<%=pokemon.id%>"><%=pokemon.name%></a>
+  <%end%>
   <input type="submit" name="name" value="Edit Your Trainer!">
+</form>
+
+
+<h2> Delete Your Trainer </h2>
+<form action="/trainer/<%=@trainer.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete This trainer">
+
 </form>

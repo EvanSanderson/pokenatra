@@ -21,6 +21,7 @@ get '/pokemon' do
 end
 
 get '/pokemon/new' do
+  @trainers = Trainer.all
   erb :"pokemon/new"
 end
 
@@ -37,6 +38,7 @@ end
 
 get '/pokemon/:id/edit' do
   @pokemon = Pokemon.find(params[:id])
+  @trainers = Trainer.all
   erb :"/pokemon/edit"
 end
 
@@ -48,7 +50,7 @@ end
 
 delete '/pokemon/:id' do
   pokemon = Pokemon.find(params[:id])
-  pokemon.destroy
+  pokemon.destroy!
   redirect '/pokemon'
 end
 
@@ -73,6 +75,7 @@ end
 
 get '/trainer/:id/edit' do
   @trainer = Trainer.find(params[:id])
+  @pokemon = Pokemon.all
   erb :"/trainer/edit"
 end
 
@@ -80,4 +83,10 @@ put '/trainer/:id' do
   trainer = Trainer.find(params[:id])
   trainer.update(params[:trainer])
   redirect "/trainer/#{trainer.id}"
+end
+
+delete '/trainer/:id' do
+  trainer = Trainer.find(params[:id])
+  trainer.destroy
+  redirect '/trainer'
 end
